@@ -1,0 +1,51 @@
+/* ========================================
+   UTILITÁRIOS: RESPONSIVIDADE
+   Media queries globais e ajustes responsivos
+   ======================================== */
+
+/* ===== AJUSTES GERAIS MOBILE ===== */
+@media (max-width: 480px) {
+    /* Reduz tamanho base da fonte */
+    :root {
+        --font-size-base: 14px;
+    }
+    
+    /* Reduz espaçamentos */
+    :root {
+        --spacing-lg: 3rem;
+        --spacing-xl: 4rem;
+    }
+}
+
+/* ===== CLASSES UTILITÁRIAS RESPONSIVAS ===== */
+
+/* Esconder em mobile */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+/* Esconder em desktop */
+@media (min-width: 769px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+/* Texto centralizado em mobile */
+@media (max-width: 768px) {
+    .text-center-mobile {
+        text-align: center !important;
+    }
+}
+
+/* ===== AJUSTES DE GRID RESPONSIVOS ===== */
+
+/* Em telas muito pequenas, force 1 coluna */
+@media (max-width: 480px) {
+    .services__grid,
+    .testimonials__grid {
+        grid-template-columns: 1fr !important;
+    }
+}

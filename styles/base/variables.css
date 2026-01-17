@@ -1,0 +1,50 @@
+/* ========================================
+   VARIÁVEIS CSS (Custom Properties)
+   Centralize todas as cores, espaçamentos e valores
+   ======================================== */
+
+:root {
+    /* ===== PALETA DE CORES - Tema Gótico Vermelho e Preto ===== */
+    --color-primary: #8B0000;
+    /* Vermelho sangue escuro */
+    --color-secondary: #DC143C;
+    /* Vermelho crimson */
+    --color-accent: #FF4444;
+    /* Vermelho vivo */
+    --color-text: #FFFFFF;
+    /* Branco para contraste */
+    --color-text-muted: #CCCCCC;
+    /* Cinza claro */
+    --color-bg: #0A0A0A;
+    /* Preto profundo */
+    --color-bg-elevated: #1A1A1A;
+    /* Preto menos intenso */
+    --color-border: #333333;
+    /* Cinza escuro */
+
+    /* ===== TIPOGRAFIA ===== */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-base: 16px;
+
+    /* ===== ESPAÇAMENTOS (usando unidades relativas ===== */
+    --spacing-xs: 0.5rem; /* 8px */
+    --spacing-sm: 1rem;   /* 16px */
+    --spacing-md: 2rem; /* 32px */
+    --spacing-lg: 4rem; /* 64px */
+    --spacing-xl: 6rem; /* 96px */
+
+    /* ===== EFEITOS E SOMBRAS ===== */
+    --shadow-glow: 0 4px 20px rgba(139, 0, 0, 0.4);
+    --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.8);
+    --transition-fast: 0.3s ease;
+
+    /* ===== LAYOUT ===== */
+    --container-width: 90%;
+    --container-max-width: 1200px;
+
+    /* ===== BORDAS ===== */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-full: 50%;
+}

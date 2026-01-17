@@ -1,0 +1,76 @@
+/* ========================================
+   LAYOUT: ABOUT (BEM)
+   Seção "Sobre Nós"
+   ======================================== */
+
+/* ===== BLOCO BASE ===== */
+.about {
+    /* Estilos já definidos em .section */
+}
+
+/* ===== ELEMENTOS DO ABOUT ===== */
+
+/* Container do conteúdo */
+.about__content {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+/* Coluna de texto */
+.about__text {
+    flex: 1;
+}
+
+.about__paragraph {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+}
+
+/* Coluna de valores */
+.about__values {
+    flex: 1;
+}
+
+.about__values-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-secondary);
+}
+
+.about__values-list {
+    list-style: none;
+}
+
+.about__values-item {
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-sm);
+    border-left: 3px solid var(--color-primary);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    transition: var(--transition-fast);
+}
+
+.about__values-item:hover {
+    border-left-color: var(--color-secondary);
+    transform: translateX(5px);
+}
+
+.about__values-label {
+    color: var(--color-text);
+    font-weight: 700;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .about__content {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .about__paragraph {
+        font-size: 1rem;
+    }
+}

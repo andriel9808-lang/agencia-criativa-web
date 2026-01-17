@@ -4,155 +4,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Agência Criativa Web - Soluções em design digital, desenvolvimento web e branding">
+    <meta name="description" content="Agência Criativa Web - Soluções em design digital, desenvolvimento web e branding">
     <title>Agência Criativa Web - Design Digital Inovador</title>
-    <link rel="stylesheet" href="estilos.css">
+    
+    <!-- CSS Modular -->
+    <link rel="stylesheet" href="styles/base/reset.css">
+    <link rel="stylesheet" href="styles/base/variables.css">
+    <link rel="stylesheet" href="styles/base/typography.css">
+    <link rel="stylesheet" href="styles/components/container.css">
+    <link rel="stylesheet" href="styles/components/button.css">
+    <link rel="stylesheet" href="styles/components/card.css">
+    <link rel="stylesheet" href="styles/components/section.css">
+    <link rel="stylesheet" href="styles/components/form.css">
+    <link rel="stylesheet" href="styles/layout/header.css">
+    <link rel="stylesheet" href="styles/layout/hero.css">
+    <link rel="stylesheet" href="styles/layout/about.css">
+    <link rel="stylesheet" href="styles/layout/services.css">
+    <link rel="stylesheet" href="styles/layout/testimonials.css">
+    <link rel="stylesheet" href="styles/layout/contact.css">
+    <link rel="stylesheet" href="styles/layout/footer.css">
+    <link rel="stylesheet" href="styles/utils/responsive.css">
 </head>
 
 <body>
-    <!-- Cabeçalho com Logo e Menu de Navegação -->
+    <!-- HEADER - Bloco BEM: header -->
     <header class="header">
-        <div class="container">
-            <div class="logo">
-                <h1>Criativa<span>Web</span></h1>
+        <div class="header__container container">
+            <div class="header__logo">
+                <h1 class="header__logo-text">
+                    Criativa<span class="header__logo-highlight">Web</span>
+                </h1>
             </div>
 
-            <!-- Menu de Navegação Responsivo -->
-            <nav class="nav">
-                <button class="menu-toggle" aria-label="Abrir menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            <!-- Navegação -->
+            <nav class="header__nav">
+                <button class="header__menu-toggle" aria-label="Abrir menu">
+                    <span class="header__menu-toggle-bar"></span>
+                    <span class="header__menu-toggle-bar"></span>
+                    <span class="header__menu-toggle-bar"></span>
                 </button>
-                <ul class="nav-list">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#sobre">Sobre Nós</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#depoimentos">Depoimentos</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="#home" class="header__nav-link">Home</a></li>
+                    <li class="header__nav-item"><a href="#sobre" class="header__nav-link">Sobre Nós</a></li>
+                    <li class="header__nav-item"><a href="#servicos" class="header__nav-link">Serviços</a></li>
+                    <li class="header__nav-item"><a href="#depoimentos" class="header__nav-link">Depoimentos</a></li>
+                    <li class="header__nav-item"><a href="#contato" class="header__nav-link">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- Seção Home: Banner de Boas-Vindas -->
+        <!-- HERO SECTION - Bloco BEM: hero -->
         <section id="home" class="hero">
-            <div class="hero-overlay"></div>
-            <div class="container">
-                <div class="hero-content">
-                    <h2>Transformamos Ideias em Experiências Digitais</h2>
-                    <p>Somos especialistas em criar soluções digitais inovadoras que elevam sua marca ao próximo nível
-                    </p>
-                    <a href="#contato" class="btn-primary">Fale Conosco</a>
-                </div>
+            <div class="hero__overlay"></div>
+            <div class="hero__content container">
+                <h2 class="hero__title">Transformamos Ideias em Experiências Digitais</h2>
+                <p class="hero__description">Somos especialistas em criar soluções digitais inovadoras que elevam sua marca ao próximo nível</p>
+                <a href="#contato" class="button button--primary">Fale Conosco</a>
             </div>
         </section>
 
-        <!-- Seção Sobre Nós -->
-        <section id="sobre" class="sobre">
+        <!-- ABOUT SECTION - Bloco BEM: about -->
+        <section id="sobre" class="section section--elevated">
             <div class="container">
-                <h2 class="section-title">Sobre Nós</h2>
-                <div class="sobre-content">
-                    <div class="sobre-texto">
-                        <p>A <strong>Agência Criativa Web</strong> nasceu da paixão por design e tecnologia. Com mais de
-                            10 anos de experiência no mercado digital, nos especializamos em criar soluções
-                            personalizadas que conectam marcas ao seu público de forma autêntica e impactante.</p>
-                        <p>Nossa equipe multidisciplinar une criatividade, estratégia e inovação tecnológica para
-                            entregar projetos que superam expectativas. Acreditamos que cada cliente é único e merece
-                            uma abordagem personalizada.</p>
+                <h2 class="section__title">Sobre Nós</h2>
+                <div class="about__content">
+                    <div class="about__text">
+                        <p class="about__paragraph">
+                            A <strong>Agência Criativa Web</strong> nasceu da paixão por design e tecnologia. 
+                            Com mais de 10 anos de experiência no mercado digital, nos especializamos em criar 
+                            soluções personalizadas que conectam marcas ao seu público de forma autêntica e impactante.
+                        </p>
+                        <p class="about__paragraph">
+                            Nossa equipe multidisciplinar une criatividade, estratégia e inovação tecnológica para 
+                            entregar projetos que superam expectativas. Acreditamos que cada cliente é único e 
+                            merece uma abordagem personalizada.
+                        </p>
                     </div>
-                    <div class="sobre-valores">
-                        <h3>Nossos Valores</h3>
-                        <ul>
-                            <li><strong>Inovação:</strong> Buscamos sempre as melhores e mais modernas soluções</li>
-                            <li><strong>Qualidade:</strong> Excelência em cada detalhe dos nossos projetos</li>
-                            <li><strong>Compromisso:</strong> Parceria de longo prazo com nossos clientes</li>
-                            <li><strong>Criatividade:</strong> Designs únicos que destacam sua marca</li>
+                    <div class="about__values">
+                        <h3 class="about__values-title">Nossos Valores</h3>
+                        <ul class="about__values-list">
+                            <li class="about__values-item">
+                                <strong class="about__values-label">Inovação:</strong> 
+                                Buscamos sempre as melhores e mais modernas soluções
+                            </li>
+                            <li class="about__values-item">
+                                <strong class="about__values-label">Qualidade:</strong> 
+                                Excelência em cada detalhe dos nossos projetos
+                            </li>
+                            <li class="about__values-item">
+                                <strong class="about__values-label">Compromisso:</strong> 
+                                Parceria de longo prazo com nossos clientes
+                            </li>
+                            <li class="about__values-item">
+                                <strong class="about__values-label">Criatividade:</strong> 
+                                Designs únicos que destacam sua marca
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Seção Serviços: Grid Responsivo -->
-        <section id="servicos" class="servicos">
+        <!-- SERVICES SECTION - Bloco BEM: services -->
+        <section id="servicos" class="section section--dark">
             <div class="container">
-                <h2 class="section-title">Nossos Serviços</h2>
-                <p class="section-subtitle">Soluções completas para sua presença digital</p>
+                <h2 class="section__title">Nossos Serviços</h2>
+                <p class="section__subtitle">Soluções completas para sua presença digital</p>
 
-                <div class="servicos-grid">
-                    <!-- Serviço 1: Design Gráfico -->
-                    <article class="servico-card">
-                        <div class="servico-icone">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <div class="services__grid">
+                    <!-- Service 1 -->
+                    <article class="service card card--elevated card--hoverable">
+                        <div class="service__icon">
+                            <svg class="service__icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="3" y="3" width="18" height="18" rx="2" />
                                 <path d="M9 9h6v6H9z" />
                             </svg>
                         </div>
-                        <h3>Design Gráfico</h3>
-                        <p>Criação de identidades visuais marcantes, logotipos, materiais impressos e digitais que
-                            comunicam a essência da sua marca.</p>
+                        <h3 class="service__title">Design Gráfico</h3>
+                        <p class="service__description">
+                            Criação de identidades visuais marcantes, logotipos, materiais impressos e 
+                            digitais que comunicam a essência da sua marca.
+                        </p>
                     </article>
 
-                    <!-- Serviço 2: Desenvolvimento Web -->
-                    <article class="servico-card">
-                        <div class="servico-icone">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <!-- Service 2 -->
+                    <article class="service card card--elevated card--hoverable">
+                        <div class="service__icon">
+                            <svg class="service__icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="16 18 22 12 16 6" />
                                 <polyline points="8 6 2 12 8 18" />
                             </svg>
                         </div>
-                        <h3>Desenvolvimento Web</h3>
-                        <p>Sites responsivos, aplicações web e e-commerce desenvolvidos com as mais modernas tecnologias
-                            do mercado.</p>
+                        <h3 class="service__title">Desenvolvimento Web</h3>
+                        <p class="service__description">
+                            Sites responsivos, aplicações web e e-commerce desenvolvidos com as mais 
+                            modernas tecnologias do mercado.
+                        </p>
                     </article>
 
-                    <!-- Serviço 3: Branding -->
-                    <article class="servico-card">
-                        <div class="servico-icone">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <!-- Service 3 -->
+                    <article class="service card card--elevated card--hoverable">
+                        <div class="service__icon">
+                            <svg class="service__icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M12 2L2 7l10 5 10-5-10-5z" />
                                 <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
                             </svg>
                         </div>
-                        <h3>Branding</h3>
-                        <p>Construção e posicionamento estratégico de marcas que geram conexão emocional com o público.
+                        <h3 class="service__title">Branding</h3>
+                        <p class="service__description">
+                            Construção e posicionamento estratégico de marcas que geram conexão 
+                            emocional com o público.
                         </p>
                     </article>
 
-                    <!-- Serviço 4: UI/UX Design -->
-                    <article class="servico-card">
-                        <div class="servico-icone">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <!-- Service 4 -->
+                    <article class="service card card--elevated card--hoverable">
+                        <div class="service__icon">
+                            <svg class="service__icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="5" y="2" width="14" height="20" rx="2" />
                                 <path d="M12 18h.01" />
                             </svg>
                         </div>
-                        <h3>UI/UX Design</h3>
-                        <p>Interfaces intuitivas e experiências de usuário que encantam e convertem visitantes em
-                            clientes.</p>
+                        <h3 class="service__title">UI/UX Design</h3>
+                        <p class="service__description">
+                            Interfaces intuitivas e experiências de usuário que encantam e convertem 
+                            visitantes em clientes.
+                        </p>
                     </article>
 
-                    <!-- Serviço 5: Marketing Digital -->
-                    <article class="servico-card">
-                        <div class="servico-icone">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <!-- Service 5 -->
+                    <article class="service card card--elevated card--hoverable">
+                        <div class="service__icon">
+                            <svg class="service__icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="18" y1="20" x2="18" y2="10" />
                                 <line x1="12" y1="20" x2="12" y2="4" />
                                 <line x1="6" y1="20" x2="6" y2="14" />
                             </svg>
                         </div>
-                        <h3>Marketing Digital</h3>
-                        <p>Estratégias completas de marketing digital, SEO, gestão de redes sociais e campanhas online.
+                        <h3 class="service__title">Marketing Digital</h3>
+                        <p class="service__description">
+                            Estratégias completas de marketing digital, SEO, gestão de redes sociais 
+                            e campanhas online.
                         </p>
                     </article>
 
-                    <!-- Serviço 6: Produção de Conteúdo -->
-                    <article class="servico-card">
-                        <div class="servico-icone">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <!-- Service 6 -->
+                    <article class="service card card--elevated card--hoverable">
+                        <div class="service__icon">
+                            <svg class="service__icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                                 <polyline points="14 2 14 8 20 8" />
                                 <line x1="16" y1="13" x2="8" y2="13" />
@@ -160,167 +201,137 @@
                                 <line x1="10" y1="9" x2="8" y2="9" />
                             </svg>
                         </div>
-                        <h3>Produção de Conteúdo</h3>
-                        <p>Criação de conteúdo visual e textual que engaja, informa e converte seu público-alvo.</p>
+                        <h3 class="service__title">Produção de Conteúdo</h3>
+                        <p class="service__description">
+                            Criação de conteúdo visual e textual que engaja, informa e converte seu público-alvo.
+                        </p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Seção Depoimentos -->
-        <section id="depoimentos" class="depoimentos">
+        <!-- TESTIMONIALS SECTION - Bloco BEM: testimonials -->
+        <section id="depoimentos" class="section section--elevated">
             <div class="container">
-                <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
+                <h2 class="section__title">O Que Nossos Clientes Dizem</h2>
 
-                <div class="depoimentos-grid">
-                    <!-- Depoimento 1 -->
-                    <article class="depoimento-card">
-                        <div class="depoimento-aspas">"</div>
-                        <p class="depoimento-texto">A Criativa Web transformou completamente nossa presença digital. O
-                            site ficou incrível e nossas vendas online aumentaram 150% em apenas 3 meses!</p>
-                        <div class="depoimento-autor">
-                            <strong>Marina Silva</strong>
-                            <span>CEO da TechStart</span>
+                <div class="testimonials__grid">
+                    <!-- Testimonial 1 -->
+                    <article class="testimonial card card--dark card--bordered-left card--hoverable">
+                        <div class="testimonial__quote-mark">"</div>
+                        <p class="testimonial__text">
+                            A Criativa Web transformou completamente nossa presença digital. O site ficou 
+                            incrível e nossas vendas online aumentaram 150% em apenas 3 meses!
+                        </p>
+                        <div class="testimonial__author">
+                            <strong class="testimonial__author-name">Marina Silva</strong>
+                            <span class="testimonial__author-role">CEO da TechStart</span>
                         </div>
                     </article>
 
-                    <!-- Depoimento 2 -->
-                    <article class="depoimento-card">
-                        <div class="depoimento-aspas">"</div>
-                        <p class="depoimento-texto">Profissionalismo e criatividade em cada etapa do projeto. A equipe
-                            entendeu perfeitamente nossa visão e entregou muito além do esperado.</p>
-                        <div class="depoimento-autor">
-                            <strong>Carlos Mendes</strong>
-                            <span>Diretor da Inovare</span>
+                    <!-- Testimonial 2 -->
+                    <article class="testimonial card card--dark card--bordered-left card--hoverable">
+                        <div class="testimonial__quote-mark">"</div>
+                        <p class="testimonial__text">
+                            Profissionalismo e criatividade em cada etapa do projeto. A equipe entendeu 
+                            perfeitamente nossa visão e entregou muito além do esperado.
+                        </p>
+                        <div class="testimonial__author">
+                            <strong class="testimonial__author-name">Carlos Mendes</strong>
+                            <span class="testimonial__author-role">Diretor da Inovare</span>
                         </div>
                     </article>
 
-                    <!-- Depoimento 3 -->
-                    <article class="depoimento-card">
-                        <div class="depoimento-aspas">"</div>
-                        <p class="depoimento-texto">O rebranding que a Criativa Web fez para nossa empresa foi
-                            sensacional. Nossa marca ganhou uma identidade moderna e impactante no mercado.</p>
-                        <div class="depoimento-autor">
-                            <strong>Ana Paula Costa</strong>
-                            <span>Fundadora da EcoVida</span>
+                    <!-- Testimonial 3 -->
+                    <article class="testimonial card card--dark card--bordered-left card--hoverable">
+                        <div class="testimonial__quote-mark">"</div>
+                        <p class="testimonial__text">
+                            O rebranding que a Criativa Web fez para nossa empresa foi sensacional. 
+                            Nossa marca ganhou uma identidade moderna e impactante no mercado.
+                        </p>
+                        <div class="testimonial__author">
+                            <strong class="testimonial__author-name">Ana Paula Costa</strong>
+                            <span class="testimonial__author-role">Fundadora da EcoVida</span>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Seção Contato -->
-        <section id="contato" class="contato">
+        <!-- CONTACT SECTION - Bloco BEM: contact -->
+        <section id="contato" class="section section--dark">
             <div class="container">
-                <h2 class="section-title">Entre em Contato</h2>
-                <p class="section-subtitle">Vamos transformar suas ideias em realidade</p>
+                <h2 class="section__title">Entre em Contato</h2>
+                <p class="section__subtitle">Vamos transformar suas ideias em realidade</p>
 
-                <div class="contato-content">
-                    <!-- Informações de Contato -->
-                    <div class="contato-info">
-                        <h3>Fale Conosco</h3>
+                <div class="contact__content">
+                    <!-- Contact Info -->
+                    <div class="contact__info">
+                        <h3 class="contact__info-title">Fale Conosco</h3>
 
-                        <div class="info-item">
-                            <span class="info-label">Endereço</span>
-                            <p>Av. Paulista, 1000 - Sala 501<br>São Paulo, SP - CEP 01310-100</p>
+                        <div class="contact__info-item">
+                            <span class="contact__info-label">Endereço</span>
+                            <p class="contact__info-text">
+                                Av. Paulista, 1000 - Sala 501<br>
+                                São Paulo, SP - CEP 01310-100
+                            </p>
                         </div>
 
-                        <div class="info-item">
-                            <span class="info-label">Telefone</span>
-                            <p>(11) 3456-7890</p>
+                        <div class="contact__info-item">
+                            <span class="contact__info-label">Telefone</span>
+                            <p class="contact__info-text">(11) 3456-7890</p>
                         </div>
 
-                        <div class="info-item">
-                            <span class="info-label">E-mail</span>
-                            <p>contato@criativaweb.com.br</p>
+                        <div class="contact__info-item">
+                            <span class="contact__info-label">E-mail</span>
+                            <p class="contact__info-text">contato@criativaweb.com.br</p>
                         </div>
 
-                        <div class="info-item">
-                            <span class="info-label">Horário de Atendimento</span>
-                            <p>Segunda a Sexta: 9h às 18h</p>
+                        <div class="contact__info-item">
+                            <span class="contact__info-label">Horário de Atendimento</span>
+                            <p class="contact__info-text">Segunda a Sexta: 9h às 18h</p>
                         </div>
                     </div>
 
-                    <!-- Formulário de Contato -->
-                    <form class="contato-form">
-                        <div class="form-group">
-                            <label for="nome">Nome Completo *</label>
-                            <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+                    <!-- Contact Form -->
+                    <form class="form card card--elevated">
+                        <div class="form__group">
+                            <label class="form__label" for="nome">Nome Completo *</label>
+                            <input class="form__input" type="text" id="nome" name="nome" required placeholder="Digite seu nome">
                         </div>
 
-                        <div class="form-group">
-                            <label for="email">E-mail *</label>
-                            <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
+                        <div class="form__group">
+                            <label class="form__label" for="email">E-mail *</label>
+                            <input class="form__input" type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
                         </div>
 
-                        <div class="form-group">
-                            <label for="telefone">Telefone</label>
-                            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+                        <div class="form__group">
+                            <label class="form__label" for="telefone">Telefone</label>
+                            <input class="form__input" type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
                         </div>
 
-                        <div class="form-group">
-                            <label for="mensagem">Mensagem *</label>
-                            <textarea id="mensagem" name="mensagem" rows="5" required
-                                placeholder="Conte-nos sobre seu projeto..."></textarea>
+                        <div class="form__group">
+                            <label class="form__label" for="mensagem">Mensagem *</label>
+                            <textarea class="form__textarea" id="mensagem" name="mensagem" rows="5" required placeholder="Conte-nos sobre seu projeto..."></textarea>
                         </div>
 
-                        <button type="submit" class="btn-primary">Enviar Mensagem</button>
+                        <button type="submit" class="button button--primary button--full-width">Enviar Mensagem</button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Rodapé -->
+    <!-- FOOTER - Bloco BEM: footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Agência Criativa Web. Todos os direitos reservados.</p>
-            <p>Desenvolvido com paixão e criatividade</p>
+            <p class="footer__text">&copy; 2026 Agência Criativa Web. Todos os direitos reservados.</p>
+            <p class="footer__text">Desenvolvido com paixão e criatividade</p>
         </div>
     </footer>
 
-    <!-- Script para Menu Hambúrguer e Validação -->
-    <script>
-        // Toggle do menu responsivo
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navList = document.querySelector('.nav-list');
-
-        menuToggle.addEventListener('click', () => {
-            navList.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-
-        // Fecha o menu ao clicar em um link
-        const navLinks = document.querySelectorAll('.nav-list a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navList.classList.remove('active');
-                menuToggle.classList.remove('active');
-            });
-        });
-
-        // Validação e envio do formulário
-        const form = document.querySelector('.contato-form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-            form.reset();
-        });
-
-        // Smooth scroll para navegação
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 
 </html>

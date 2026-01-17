@@ -1,0 +1,79 @@
+/* ========================================
+   LAYOUT: SERVICES (BEM)
+   Seção de Serviços com Grid
+   ======================================== */
+
+/* ===== GRID DE SERVIÇOS ===== */
+.services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+/* ===== CARD DE SERVIÇO (BEM) ===== */
+.service {
+    text-align: center;
+}
+
+/* Ícone do serviço */
+.service__icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: var(--border-radius-full);
+    color: var(--color-text);
+    transition: var(--transition-fast);
+}
+
+.service__icon-svg {
+    width: 40px;
+    height: 40px;
+}
+
+/* Hover no card anima o ícone */
+.service:hover .service__icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: var(--shadow-glow);
+}
+
+/* Título do serviço */
+.service__title {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-secondary);
+}
+
+/* Descrição do serviço */
+.service__description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (min-width: 1400px) {
+    .services__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .services__grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .service__icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .service__title {
+        font-size: 1.3rem;
+    }
+}

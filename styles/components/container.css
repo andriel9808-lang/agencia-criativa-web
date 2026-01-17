@@ -1,0 +1,27 @@
+/* ========================================
+   COMPONENTE: CONTAINER
+   Container responsivo centralizado
+   ======================================== */
+
+.container {
+    width: var(--container-width);
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* ===== MODIFICADORES ===== */
+
+/* Container mais largo para desktop grande */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+
+/* Container mais estreito em mobile */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+    }
+}

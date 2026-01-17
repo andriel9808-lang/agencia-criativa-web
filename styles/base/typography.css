@@ -1,0 +1,48 @@
+/* ========================================
+   TIPOGRAFIA
+   Define estilos base para textos
+   ======================================== */
+
+   html {
+    font-size: var(--font-size-base);
+   }
+
+   body {
+    font-family: var(--font-family);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+   }
+
+   /* ===== HEADINGS ===== */
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6 {
+    line-height: 1.2;
+    font-weight: 700;
+   }
+
+   h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+   }
+
+   h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+   }
+
+   h3 {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+   }
+
+   /* ===== PARAGRAPHS ===== */
+   p {
+    line-height: 1.8;
+   }
+
+   /* ===== STRONG ===== */
+   strong {
+    font-weight: 700;
+    color: var(--color-text);
+   }
