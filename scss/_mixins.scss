@@ -1,0 +1,67 @@
+// _mixins.scss
+// Mixins reutilizáveis
+
+@use 'variaveis' as *;
+
+// Mixin para botões base
+@mixin botao-base {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: $transicao-rapida;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: $borda-arredondada-sm;
+  border: none;
+  text-align: center;
+}
+
+// Mixin para efeito hover de levitação
+@mixin hover-levitacao($distancia: -10px) {
+  &:hover {
+    transform: translateY($distancia);
+    box-shadow: $sombra-brilho;
+  }
+}
+
+// Mixin para cards base
+@mixin card-base {
+  padding: $espacamento-md;
+  border-radius: $borda-arredondada-md;
+  transition: $transicao-rapida;
+}
+
+// Mixin para centralizar flex
+@mixin flex-center($direcao: row) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direcao;
+}
+
+// Mixin para grid responsivo
+@mixin grid-responsivo($colunas-min: 300px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($colunas-min, 1fr));
+  gap: $espacamento-md;
+}
+
+// Mixin para texto responsivo
+@mixin texto-responsivo($min, $ideal, $max) {
+  font-size: clamp($min, $ideal, $max);
+}
+
+// Mixin para container centralizado
+@mixin container {
+  width: $largura-container;
+  max-width: $largura-maxima-container;
+  margin: 0 auto;
+  padding: 0 $espacamento-sm;
+}
+
+// Mixin para gradiente vermelho
+@mixin gradiente-vermelho($angulo: 135deg) {
+  background: linear-gradient($angulo, $cor-primaria, $cor-secundaria);
+}

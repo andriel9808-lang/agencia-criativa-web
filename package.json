@@ -1,0 +1,22 @@
+{
+  "name": "agencia-criativa-web-sass",
+  "version": "1.0.0",
+  "description": "Projeto Agência Criativa Web refatorado com SASS - EBAC",
+  "main": "index.html",
+  "scripts": {
+    "sass": "sass --watch scss:css",
+    "build": "sass scss:css",
+    "build:prod": "sass scss:css --style=compressed"
+  },
+  "keywords": [
+    "sass",
+    "bem",
+    "css",
+    "responsive"
+  ],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.0"
+  }
+}

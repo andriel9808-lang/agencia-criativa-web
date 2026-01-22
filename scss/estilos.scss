@@ -1,0 +1,22 @@
+// estilos.scss
+// Arquivo principal que importa todos os partials
+
+
+// Ordem de importação (importante!)
+// 1. Variáveis (usadas por todos os outros arquivos)
+@use 'variaveis';
+
+// 2. Mixins (usados pelos componentes e layout)
+@use 'mixins';
+
+// 3. Base (reset e estilos fundamentais)
+@use 'base';
+
+// 4. Componentes (reutilizáveis)
+@use 'componentes';
+
+// 5. Layout (estrutura específica do site)
+@use 'layout';
+
+// Importar Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');

@@ -1,0 +1,195 @@
+// _componentes.scss
+// Componentes reutilizáveis: container, button, card, section, form
+
+@use 'variaveis' as *;
+@use 'mixins' as *;
+
+// CONTAINER
+.container {
+  @include container;
+
+  @media (min-width: $breakpoint-desktop) {
+    max-width: 1400px;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    width: 95%;
+  }
+}
+
+// BUTTON
+.button {
+  @include botao-base;
+
+  &--primary {
+    @include gradiente-vermelho;
+    color: $cor-texto;
+    border: 2px solid $cor-secundaria;
+
+    &:hover {
+      background: linear-gradient(135deg, $cor-secundaria, $cor-destaque);
+      box-shadow: $sombra-brilho;
+      transform: translateY(-2px);
+    }
+  }
+
+  &--secondary {
+    background: transparent;
+    color: $cor-secundaria;
+    border: 2px solid $cor-secundaria;
+
+    &:hover {
+      background: $cor-secundaria;
+      color: $cor-texto;
+      box-shadow: $sombra-brilho;
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+// CARD
+.card {
+  @include card-base;
+
+  &--elevated {
+    background-color: $cor-fundo-elevado;
+    border: 1px solid $cor-borda;
+  }
+
+  &--dark {
+    background-color: $cor-fundo;
+  }
+
+  &--bordered-left {
+    border-left: 4px solid $cor-primaria;
+
+    &:hover {
+      border-left-color: $cor-secundaria;
+    }
+  }
+
+  &--hoverable {
+    @include hover-levitacao;
+
+    &.card--elevated:hover {
+      border-color: $cor-secundaria;
+    }
+  }
+
+  &--compact {
+    padding: $espacamento-sm;
+  }
+
+  &--large {
+    padding: $espacamento-lg;
+  }
+}
+
+// SECTION
+.section {
+  padding: $espacamento-xl 0;
+
+  &--dark {
+    background-color: $cor-fundo;
+  }
+
+  &--elevated {
+    background-color: $cor-fundo-elevado;
+  }
+
+  &__title {
+    @include texto-responsivo(2rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: $espacamento-md;
+    color: $cor-secundaria;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  &__subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: $cor-texto-secundario;
+    margin-bottom: $espacamento-lg;
+    line-height: 1.6;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: $espacamento-lg 0;
+
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    &__subtitle {
+      font-size: 1rem;
+    }
+  }
+}
+
+// FORM
+.form {
+  width: 100%;
+
+  &__group {
+    margin-bottom: $espacamento-sm;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: $espacamento-xs;
+    font-weight: 500;
+    color: $cor-texto;
+    font-size: 1rem;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: $cor-fundo;
+    border: 2px solid $cor-borda;
+    border-radius: $borda-arredondada-sm;
+    color: $cor-texto;
+    font-family: $fonte-principal;
+    font-size: 1rem;
+    transition: $transicao-rapida;
+
+    &:focus {
+      outline: none;
+      border-color: $cor-secundaria;
+      box-shadow: 0 0 10px rgba(220, 20, 60, 0.3);
+    }
+
+    &::placeholder {
+      color: $cor-texto-secundario;
+      opacity: 0.6;
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 150px;
+    line-height: 1.6;
+  }
+
+  &__input--error,
+  &__textarea--error {
+    border-color: $cor-destaque;
+  }
+
+  &__input--disabled,
+  &__textarea--disabled {
+    background-color: $cor-fundo-elevado;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
