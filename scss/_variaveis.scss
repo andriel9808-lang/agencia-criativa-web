@@ -1,0 +1,43 @@
+// _variaveis.scss
+// Todas as variáveis CSS convertidas para SASS
+
+// Paleta de Cores - Tema Gótico Vermelho e Preto
+$cor-primaria: #8B0000;
+$cor-secundaria: #DC143C;
+$cor-destaque: #FF4444;
+$cor-texto: #FFFFFF;
+$cor-texto-secundario: #CCCCCC;
+$cor-fundo: #0A0A0A;
+$cor-fundo-elevado: #1A1A1A;
+$cor-borda: #333333;
+
+// Tipografia
+$fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$tamanho-fonte-base: 16px;
+
+// Espaçamentos (usando calc para operações)
+$espacamento-xs: 0.5rem;
+$espacamento-sm: 1rem;
+$espacamento-md: 2rem;
+$espacamento-lg: 4rem;
+$espacamento-xl: 6rem;
+
+// Efeitos e Sombras
+$sombra-brilho: 0 4px 20px rgba(139, 0, 0, 0.4);
+$sombra-forte: 0 8px 32px rgba(0, 0, 0, 0.8);
+$transicao-rapida: 0.3s ease;
+
+// Layout
+$largura-container: 90%;
+$largura-maxima-container: 1200px;
+
+// Bordas
+$borda-arredondada-sm: 4px;
+$borda-arredondada-md: 8px;
+$borda-arredondada-lg: 12px;
+$borda-arredondada-full: 50%;
+
+// Breakpoints para responsividade
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1400px;

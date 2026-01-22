@@ -1,98 +1,253 @@
-# Agência Criativa Web
+# Agência Criativa Web - Refatoração SASS
 
-![Status](https://img.shields.io/badge/Status-Concluído-success)
-![Metodologia](https://img.shields.io/badge/Metodologia-BEM-blue)
-![CSS](https://img.shields.io/badge/CSS-Modular-purple)
-![Responsivo](https://img.shields.io/badge/Responsivo-100%25-green)
+Projeto refatorado usando SASS seguindo os requisitos da EBAC (Escola Britânica de Artes Criativas e Tecnologia).
 
-> Website profissional de uma agência digital, desenvolvido com metodologia BEM e CSS modular. Projeto refatorado seguindo as melhores práticas de desenvolvimento front-end.
+## O Que Mudou
 
-## Índice
+### Antes (CSS Modular)
+- 17 arquivos CSS separados
+- Variáveis CSS (Custom Properties)
+- Código duplicado em vários lugares
+- Múltiplas importações no HTML
 
-- [Sobre o Projeto](#sobre-o-projeto)
-- [Demonstração](#demonstração)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Metodologia BEM](#metodologia-bem)
-- [Estrutura de Arquivos](#estrutura-de-arquivos)
-- [Componentes Reutilizáveis](#componentes-reutilizáveis)
-- [Funcionalidades](#funcionalidades)
-- [Como Usar](#como-usar)
-- [Processo de Refatoração](#processo-de-refatoração)
-- [Responsividade](#responsividade)
-- [Melhorias Implementadas](#melhorias-implementadas)
-- [Autor](#autor)
-- [Licença](#licença)
+### Depois (SASS)
+- 6 arquivos SASS organizados
+- Variáveis SASS
+- 8 mixins reutilizáveis
+- Aninhamento BEM
+- Um único CSS compilado
+- Código otimizado e sem duplicação
 
----
+## Estrutura de Arquivos
 
-## Sobre o Projeto
+```
+agencia-criativa-web/
+├── scss/
+│   ├── _variaveis.scss      # Todas as variáveis (cores, fontes, espaçamentos)
+│   ├── _mixins.scss          # 8 mixins reutilizáveis
+│   ├── _base.scss            # Reset e estilos base
+│   ├── _componentes.scss     # Componentes reutilizáveis
+│   ├── _layout.scss          # Estrutura do site
+│   └── estilos.scss          # Arquivo principal
+├── css/
+│   └── estilos.css           # CSS compilado (gerado automaticamente)
+├── index.html                # HTML atualizado
+├── script.js                 # JavaScript (sem alterações)
+├── package.json
+└── README.md
+```
 
-A **Agência Criativa Web** é um website institucional desenvolvido para demonstrar serviços de uma agência digital especializada em design, desenvolvimento web e branding.
+## Instalação e Uso
 
-Este projeto foi completamente **refatorado** seguindo os requisitos da EBAC (Escola Britânica de Artes Criativas e Tecnologia) aplicando:
+### 1. Instalar Dependências
 
-- Metodologia BEM (Block Element Modifier)
-- Arquitetura CSS modular e escalável
-- Componentes reutilizáveis
-- Baixa especificidade CSS
-- Organização hierárquica clara
-- Código documentado e comentado
-- Responsividade total (mobile-first)
+```bash
+npm install
+```
 
-### Objetivos do Projeto
+### 2. Desenvolver (Modo Watch)
 
-- Aplicar metodologia BEM em 100% do código CSS
-- Criar componentes reutilizáveis e escaláveis
-- Eliminar código duplicado e redundante
-- Reduzir especificidade CSS
-- Modularizar arquivos CSS por responsabilidade
-- Manter funcionalidade e responsividade
+```bash
+npm run sass
+```
 
----
+Este comando:
+- Observa mudanças nos arquivos SASS
+- Compila automaticamente para CSS
+- Mantém rodando enquanto você desenvolve
 
-## Demonstração
+### 3. Compilar para Produção
 
-**Link do projeto:** [Inserir link do GitHub Pages aqui]
+```bash
+npm run build:prod
+```
 
-### Prévia das Seções
+Este comando:
+- Compila SASS para CSS
+- Minifica o código
+- Otimiza para produção
 
-- **Home/Hero:** Banner de boas-vindas com call-to-action
-- **Sobre Nós:** Apresentação da agência e valores
-- **Serviços:** Grid responsivo com 6 serviços oferecidos
-- **Depoimentos:** Feedback de clientes
-- **Contato:** Formulário e informações de contato
+## Arquivos SASS Explicados
 
----
+### _variaveis.scss
+Todas as variáveis do projeto:
 
-## Tecnologias Utilizadas
+```scss
+// Cores
+$cor-primaria: #8B0000;
+$cor-secundaria: #DC143C;
 
-### Front-end
+// Espaçamentos
+$espacamento-sm: 1rem;
+$espacamento-md: 2rem;
 
-- **HTML5** - Estrutura semântica
-- **CSS3** - Estilização modular com BEM
-- **JavaScript (ES6+)** - Interatividade
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+```
 
-### Metodologias
+### _mixins.scss
+8 mixins reutilizáveis:
 
-- **BEM** - Nomenclatura de classes CSS
-- **Mobile First** - Abordagem responsiva
-- **DRY** - Don't Repeat Yourself
+1. `botao-base` - Estilos base para botões
+2. `hover-levitacao` - Efeito hover de levitação
+3. `card-base` - Estilos base para cards
+4. `flex-center` - Centralização flexbox
+5. `grid-responsivo` - Grid adaptativo
+6. `texto-responsivo` - Fontes com clamp
+7. `container` - Container centralizado
+8. `gradiente-vermelho` - Gradiente reutilizável
 
-### Recursos CSS
+Exemplo de uso:
+```scss
+.meu-componente {
+  @include card-base;
+  @include hover-levitacao;
+}
+```
 
-- **Custom Properties (CSS Variables)** - Design tokens
-- **Flexbox** - Layout flexível
-- **CSS Grid** - Layout em grade
-- **Media Queries** - Responsividade
-- **Transitions & Transforms** - Animações suaves
+### _base.scss
+Reset CSS e estilos fundamentais:
+- Reset de margins e paddings
+- Estilos de body
+- Tipografia base (h1-h6, p, strong)
+- Links, listas, imagens
+- Responsividade mobile
 
----
+### _componentes.scss
+Componentes reutilizáveis com BEM:
 
-## Metodologia BEM
+**Container:**
+```scss
+.container
+```
 
-BEM (Block Element Modifier) é uma metodologia de nomenclatura para classes CSS que torna o código mais organizado, reutilizável e escalável.
+**Botões:**
+```scss
+.button
+.button--primary
+.button--secondary
+.button--full-width
+```
 
-### Estrutura BEM
+**Cards:**
+```scss
+.card
+.card--elevated
+.card--dark
+.card--bordered-left
+.card--hoverable
+.card--compact
+.card--large
+```
+
+**Seções:**
+```scss
+.section
+.section--dark
+.section--elevated
+.section__title
+.section__subtitle
+```
+
+**Formulários:**
+```scss
+.form
+.form__group
+.form__label
+.form__input
+.form__textarea
+```
+
+### _layout.scss
+Toda a estrutura do site:
+
+- Header (com navegação responsiva)
+- Hero (banner principal)
+- About (sobre nós)
+- Services (serviços com grid)
+- Testimonials (depoimentos)
+- Contact (contato com formulário)
+- Footer (rodapé)
+
+### estilos.scss
+Arquivo principal que importa todos:
+
+```scss
+@use 'variaveis';
+@use 'mixins';
+@use 'base';
+@use 'componentes';
+@use 'layout';
+```
+
+## Recursos SASS Utilizados
+
+### 1. Variáveis
+
+```scss
+$cor-primaria: #8B0000;
+
+.botao {
+  background: $cor-primaria;
+}
+```
+
+### 2. Aninhamento BEM
+
+```scss
+.header {
+  &__container { }
+  &__logo {
+    &-text { }
+    &-highlight { }
+  }
+  &__nav {
+    &-list { }
+    &-item { }
+    &-link {
+      &:hover { }
+    }
+  }
+}
+```
+
+### 3. Mixins
+
+```scss
+@mixin botao-base {
+  padding: 1rem 2.5rem;
+  border-radius: 4px;
+  // ...
+}
+
+.button {
+  @include botao-base;
+}
+```
+
+### 4. Operadores
+
+```scss
+padding: calc($espacamento-md / 2);
+margin-bottom: $espacamento-sm;
+```
+
+### 5. @use (Importação Moderna)
+
+```scss
+@use 'variaveis' as *;
+@use 'mixins';
+
+.elemento {
+  color: $cor-primaria; // De variaveis
+  @include flex-center; // De mixins
+}
+```
+
+## Metodologia BEM Mantida
+
+Toda a estrutura BEM do projeto original foi preservada:
 
 ```
 .bloco
@@ -101,565 +256,138 @@ BEM (Block Element Modifier) é uma metodologia de nomenclatura para classes CSS
 .bloco--modificador
 ```
 
-### Exemplos no Projeto
+Exemplos:
+- `.header__nav-list`
+- `.button--primary`
+- `.card--elevated`
+- `.section--dark`
 
-#### Header (Bloco)
-```css
-.header                          /* Bloco principal */
-.header__container               /* Elemento: container do header */
-.header__logo                    /* Elemento: área do logo */
-.header__logo-text               /* Elemento: texto do logo */
-.header__logo-highlight          /* Elemento: destaque do logo */
-.header__nav                     /* Elemento: navegação */
-.header__nav-list                /* Elemento: lista de navegação */
-.header__nav-list--active        /* Modificador: lista ativa (mobile) */
-.header__nav-item                /* Elemento: item da navegação */
-.header__nav-link                /* Elemento: link de navegação */
-```
+## Vantagens da Refatoração
 
-#### Componente Card (Reutilizável)
-```css
-.card                            /* Bloco base */
-.card--elevated                  /* Modificador: fundo elevado */
-.card--dark                      /* Modificador: fundo escuro */
-.card--bordered-left             /* Modificador: borda esquerda */
-.card--hoverable                 /* Modificador: com efeito hover */
-```
+### Organização
+- Código modular e organizado
+- Fácil localizar e modificar estilos
+- Hierarquia clara de arquivos
 
-### Vantagens do BEM
+### Manutenção
+- Mudanças centralizadas em variáveis
+- Mixins eliminam duplicação
+- Código reutilizável
 
-- **Baixa especificidade:** Todas as classes têm o mesmo peso (0-1-0)
-- **Reutilização:** Componentes podem ser usados em qualquer lugar
-- **Escalabilidade:** Fácil adicionar novos elementos/modificadores
-- **Clareza:** Nome da classe indica sua função e hierarquia
-- **Manutenção:** Fácil localizar e modificar estilos
-
----
-
-## Estrutura de Arquivos
-
-```
-agencia-criativa-web/
-│
-├── index.html                          # HTML principal com classes BEM
-├── script.js                           # JavaScript refatorado
-│
-└── styles/                             # Diretório de estilos
-    │
-    ├── base/                          # Arquivos fundamentais
-    │   ├── reset.css                  # Reset de estilos do navegador
-    │   ├── variables.css              # Variáveis CSS (cores, espaçamentos)
-    │   └── typography.css             # Tipografia base
-    │
-    ├── components/                    # Componentes reutilizáveis
-    │   ├── container.css              # Container centralizado
-    │   ├── button.css                 # Botões (primário, secundário, etc)
-    │   ├── card.css                   # Cards com modificadores
-    │   ├── section.css                # Seções padronizadas
-    │   └── form.css                   # Formulários e inputs
-    │
-    ├── layout/                        # Seções específicas do site
-    │   ├── header.css                 # Cabeçalho e navegação
-    │   ├── hero.css                   # Banner principal
-    │   ├── about.css                  # Seção Sobre Nós
-    │   ├── services.css               # Seção de Serviços
-    │   ├── testimonials.css           # Seção de Depoimentos
-    │   ├── contact.css                # Seção de Contato
-    │   └── footer.css                 # Rodapé
-    │
-    └── utils/                         # Utilitários
-        └── responsive.css             # Media queries globais
-```
-
-### Organização por Camadas
-
-#### 1. Base (Fundação)
-Estilos fundamentais que raramente mudam:
-- Reset de estilos do navegador
-- Variáveis CSS (design tokens)
-- Tipografia base
-
-#### 2. Components (Reutilizáveis)
-Componentes que podem ser usados em qualquer projeto:
-- Containers
-- Botões
-- Cards
-- Seções
-- Formulários
-
-#### 3. Layout (Específicos)
-Seções específicas deste website:
-- Header
-- Hero
-- About
-- Services
-- Testimonials
-- Contact
-- Footer
-
-#### 4. Utils (Utilitários)
-Código auxiliar:
-- Media queries
-- Classes utilitárias
-- Helpers
-
----
-
-## Componentes Reutilizáveis
-
-### Button Component
-
-**Arquivo:** `styles/components/button.css`
-
-```html
-<!-- Botão primário -->
-<button class="button button--primary">Fale Conosco</button>
-
-<!-- Botão secundário -->
-<button class="button button--secondary">Saiba Mais</button>
-
-<!-- Botão full width -->
-<button class="button button--primary button--full-width">Enviar</button>
-```
-
-**Modificadores disponíveis:**
-- `button--primary` - Estilo principal (gradiente vermelho)
-- `button--secondary` - Estilo secundário (outline)
-- `button--full-width` - Largura 100%
-
-### Card Component
-
-**Arquivo:** `styles/components/card.css`
-
-```html
-<!-- Card elevado com hover -->
-<article class="card card--elevated card--hoverable">
-  Conteúdo
-</article>
-
-<!-- Card escuro com borda esquerda -->
-<article class="card card--dark card--bordered-left">
-  Conteúdo
-</article>
-```
-
-**Modificadores disponíveis:**
-- `card--elevated` - Fundo elevado (mais claro)
-- `card--dark` - Fundo escuro
-- `card--bordered-left` - Borda colorida à esquerda
-- `card--hoverable` - Efeito de levitação ao passar o mouse
-- `card--compact` - Padding reduzido
-- `card--large` - Padding aumentado
-
-### Section Component
-
-**Arquivo:** `styles/components/section.css`
-
-```html
-<section class="section section--dark">
-  <div class="container">
-    <h2 class="section__title">Título</h2>
-    <p class="section__subtitle">Subtítulo</p>
-  </div>
-</section>
-```
-
-**Modificadores disponíveis:**
-- `section--dark` - Fundo escuro
-- `section--elevated` - Fundo elevado (mais claro)
-
-### Form Component
-
-**Arquivo:** `styles/components/form.css`
-
-```html
-<form class="form">
-  <div class="form__group">
-    <label class="form__label" for="nome">Nome</label>
-    <input class="form__input" type="text" id="nome">
-  </div>
-  
-  <div class="form__group">
-    <label class="form__label" for="mensagem">Mensagem</label>
-    <textarea class="form__textarea" id="mensagem"></textarea>
-  </div>
-  
-  <button class="button button--primary button--full-width">Enviar</button>
-</form>
-```
-
----
-
-## Funcionalidades
-
-### JavaScript
-
-#### 1. Menu Responsivo (Hambúrguer)
-- Menu toggle em dispositivos móveis
-- Animação de transformação do ícone
-- Fecha automaticamente ao clicar em links
-
-#### 2. Smooth Scroll
-- Navegação suave entre seções
-- Scroll animado ao clicar em links âncora
-
-#### 3. Formulário de Contato
-- Validação HTML5
-- Feedback ao enviar
-- Reset após envio
-
-#### 4. Link Ativo na Navegação
-- Destaca automaticamente o link da seção visível
-- Atualiza ao fazer scroll
-
----
-
-## Como Usar
-
-### Instalação
-
-1. Clone o repositório:
-```bash
-git clone https://github.com/seu-usuario/agencia-criativa-web.git
-```
-
-2. Navegue até a pasta:
-```bash
-cd agencia-criativa-web
-```
-
-3. Abra o arquivo `index.html` no navegador:
-```bash
-# No Linux/Mac
-open index.html
-
-# No Windows
-start index.html
-```
+### Performance
+- Um único arquivo CSS
+- Código minificado em produção
+- Menos requisições HTTP
 
 ### Desenvolvimento
+- Aninhamento facilita leitura
+- Variáveis evitam erros
+- Mixins aceleram desenvolvimento
 
-Para trabalhar no projeto:
+## Comandos Disponíveis
 
-1. Mantenha a estrutura de arquivos CSS
-2. Siga a metodologia BEM para novas classes
-3. Use os componentes reutilizáveis existentes
-4. Teste em diferentes dispositivos/navegadores
+```bash
+# Instalar dependências
+npm install
 
-### Adicionar Novos Componentes
+# Modo desenvolvimento (watch)
+npm run sass
 
-#### Criar um novo serviço:
-```html
-<article class="service card card--elevated card--hoverable">
-  <div class="service__icon">
-    <svg class="service__icon-svg">...</svg>
-  </div>
-  <h3 class="service__title">Novo Serviço</h3>
-  <p class="service__description">Descrição...</p>
-</article>
+# Compilar uma vez
+npm run build
+
+# Compilar minificado
+npm run build:prod
 ```
 
-#### Criar uma nova seção:
-```html
-<section class="section section--dark">
-  <div class="container">
-    <h2 class="section__title">Nova Seção</h2>
-    <p class="section__subtitle">Descrição da seção</p>
-    <!-- Conteúdo -->
-  </div>
-</section>
-```
+## Compatibilidade
 
----
+- Node.js 14+
+- SASS 1.69.0+
+- Navegadores modernos (Chrome, Firefox, Safari, Edge)
 
-## Processo de Refatoração
+## Requisitos EBAC Atendidos
 
-### Mudanças Principais
+- [x] Estrutura com partials (_variaveis, _mixins, _base, etc)
+- [x] Arquivo _variaveis.scss com todas as variáveis
+- [x] Arquivo _mixins.scss com pelo menos 2 mixins (criamos 8)
+- [x] Uso de operadores SASS (calc)
+- [x] Aninhamento de seletores
+- [x] Metodologia BEM aplicada
+- [x] Uso de @use (moderno)
+- [x] Compilação via Node.js
+- [x] Pasta scss/ separada de css/
+- [x] index.html atualizado
+- [x] Repositório público no GitHub
 
-#### 1. Aplicação da Metodologia BEM
+## Comparação: CSS vs SASS
 
-**Antes:**
-```html
-<header class="header">
-  <div class="logo">
-    <h1>Criativa<span>Web</span></h1>
-  </div>
-</header>
-```
-
+### CSS (Antes)
 ```css
-.header { }
-.logo h1 { }
-.logo span { }
-```
-
-**Depois:**
-```html
-<header class="header">
-  <div class="header__logo">
-    <h1 class="header__logo-text">
-      Criativa<span class="header__logo-highlight">Web</span>
-    </h1>
-  </div>
-</header>
-```
-
-```css
-.header { }
-.header__logo { }
-.header__logo-text { }
-.header__logo-highlight { }
-```
-
-#### 2. Criação de Componentes Reutilizáveis
-
-**Antes (Código duplicado):**
-```css
-.servico-card {
-    padding: 2rem;
-    border-radius: 8px;
-    background: #1A1A1A;
-    border: 1px solid #333;
+.button {
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #8B0000, #DC143C);
 }
 
-.depoimento-card {
-    padding: 2rem;
-    border-radius: 8px;
-    background: #0A0A0A;
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button--secondary {
+  padding: 1rem 2.5rem;
+  background: transparent;
 }
 ```
 
-**Depois (Componente reutilizável):**
-```css
-.card {
-    padding: var(--spacing-md);
-    border-radius: var(--border-radius-md);
+### SASS (Depois)
+```scss
+@mixin botao-base {
+  padding: 1rem 2.5rem;
 }
 
-.card--elevated {
-    background: var(--color-bg-elevated);
-    border: 1px solid var(--color-border);
+.button {
+  @include botao-base;
+  @include gradiente-vermelho;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+  
+  &--secondary {
+    @include botao-base;
+    background: transparent;
+  }
 }
-
-.card--dark {
-    background: var(--color-bg);
-}
 ```
 
-#### 3. Eliminação de Seletores de Tag
+## Troubleshooting
 
-**Antes:**
-```css
-.logo h1 { }
-.logo span { }
-.nav-list a { }
-```
+### CSS não atualiza
+1. Verifique se `npm run sass` está rodando
+2. Recarregue a página (Ctrl+F5)
+3. Limpe o cache do navegador
 
-**Depois:**
-```css
-.header__logo-text { }
-.header__logo-highlight { }
-.header__nav-link { }
-```
+### Erro de importação
+1. Certifique-se de usar `@use` e não `@import`
+2. Adicione `as *` se quiser usar variáveis diretamente
+3. Verifique os nomes dos arquivos
 
-#### 4. Modularização do CSS
-
-**Antes:** 1 arquivo de 520 linhas
-
-**Depois:** 15 arquivos organizados:
-- 3 arquivos base (reset, variables, typography)
-- 5 arquivos components (container, button, card, section, form)
-- 7 arquivos layout (header, hero, about, services, testimonials, contact, footer)
-- 1 arquivo utils (responsive)
-
----
-
-## Responsividade
-
-### Breakpoints
-
-```css
-/* Mobile First - Base styles para mobile */
-
-/* Tablet */
-@media (max-width: 768px) { }
-
-/* Mobile */
-@media (max-width: 480px) { }
-
-/* Desktop Grande */
-@media (min-width: 1400px) { }
-```
-
-### Adaptações Responsivas
-
-#### Mobile (até 480px)
-- Menu hambúrguer ativo
-- Grid de 1 coluna
-- Fontes reduzidas
-- Espaçamentos menores
-- Hero com altura reduzida
-
-#### Tablet (481px - 768px)
-- Menu hambúrguer ativo
-- Grid de 1-2 colunas
-- Layout em coluna para seção About
-- Contato em 1 coluna
-
-#### Desktop (769px+)
-- Menu horizontal completo
-- Grid de 2-3 colunas
-- Layout em 2 colunas para About e Contact
-- Espaçamentos completos
-
----
-
-## Melhorias Implementadas
-
-### Métricas de Qualidade
-
-| Métrica | Antes | Depois | Melhoria |
-|---------|-------|--------|----------|
-| Linhas de CSS | 520 (1 arquivo) | 450 (15 arquivos) | Modularizado |
-| Seletores de tag | 18 | 0 | -100% |
-| Código duplicado | ~150 linhas | ~20 linhas | -87% |
-| Classes reutilizáveis | 2 | 20+ | +900% |
-| Conformidade BEM | 0% | 100% | 100% |
-| Especificidade média | 0-1-1 a 0-2-1 | 0-1-0 | -50% |
-
-### Benefícios da Refatoração
-
-#### Manutenibilidade
-- Código organizado e fácil de encontrar
-- Modificações isoladas em arquivos específicos
-- Redução de efeitos colaterais
-
-#### Escalabilidade
-- Fácil adicionar novos componentes
-- Padrão consistente em todo o código
-- Componentes podem crescer independentemente
-
-#### Reutilização
-- Componentes funcionam em qualquer contexto
-- Modificadores permitem variações infinitas
-- Menos código para manter
-
-#### Performance
-- Especificidade baixa e uniforme
-- CSS otimizado e sem redundâncias
-- Arquivos podem ser carregados sob demanda
-
-#### Trabalho em Equipe
-- Padrão claro e documentado
-- Arquivos separados evitam conflitos
-- Fácil onboarding de novos desenvolvedores
-
----
-
-## Variáveis CSS (Design Tokens)
-
-### Cores
-
-```css
---color-primary: #8B0000;          /* Vermelho sangue escuro */
---color-secondary: #DC143C;        /* Vermelho crimson */
---color-accent: #FF4444;           /* Vermelho vivo */
---color-text: #FFFFFF;             /* Texto principal */
---color-text-muted: #CCCCCC;       /* Texto secundário */
---color-bg: #0A0A0A;               /* Fundo escuro */
---color-bg-elevated: #1A1A1A;      /* Fundo elevado */
---color-border: #333333;           /* Bordas */
-```
-
-### Espaçamentos
-
-```css
---spacing-xs: 0.5rem;   /* 8px */
---spacing-sm: 1rem;     /* 16px */
---spacing-md: 2rem;     /* 32px */
---spacing-lg: 4rem;     /* 64px */
---spacing-xl: 6rem;     /* 96px */
-```
-
-### Efeitos
-
-```css
---shadow-glow: 0 4px 20px rgba(139, 0, 0, 0.4);
---shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.8);
---transition-fast: 0.3s ease;
-```
-
-### Bordas
-
-```css
---border-radius-sm: 4px;
---border-radius-md: 8px;
---border-radius-lg: 12px;
---border-radius-full: 50%;
-```
-
----
-
-## Navegadores Suportados
-
-- Chrome (última versão)
-- Firefox (última versão)
-- Safari (última versão)
-- Edge (última versão)
-- Opera (última versão)
-
----
-
-## Aprendizados
-
-Este projeto demonstra:
-
-1. **Metodologia BEM** - Nomenclatura consistente e escalável
-2. **Arquitetura CSS** - Organização modular e hierárquica
-3. **Componentes Reutilizáveis** - DRY principle aplicado
-4. **Responsividade** - Mobile-first approach
-5. **Boas Práticas** - Código limpo e documentado
-6. **Performance** - Baixa especificidade e código otimizado
-
----
+### Variável não encontrada
+1. Verifique se o arquivo está importando variáveis: `@use 'variaveis' as *;`
+2. Confirme o nome correto da variável
 
 ## Próximos Passos
 
-Possíveis melhorias futuras:
-
-- [ ] Adicionar animações com GSAP
-- [ ] Implementar tema claro/escuro
-- [ ] Adicionar mais modificadores aos componentes
-- [ ] Criar sistema de grid customizado
-- [ ] Implementar lazy loading de imagens
-- [ ] Adicionar testes automatizados
-- [ ] Otimizar performance com Critical CSS
-- [ ] Implementar Service Worker para PWA
-
----
-
-## Autor
-
-**Seu Nome**
-
-- GitHub: [@seu-usuario](https://github.com/seu-usuario)
-- LinkedIn: [seu-perfil](https://linkedin.com/in/seu-perfil)
-- Email: seu.email@exemplo.com
-
----
+1. Testar o site compilado
+2. Verificar responsividade em diferentes dispositivos
+3. Fazer commit das mudanças
+4. Push para o GitHub
+5. Compartilhar o link do repositório
 
 ## Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+MIT
 
----
+## Autor
 
-## Agradecimentos
-
-- EBAC - Escola Britânica de Artes Criativas e Tecnologia
-- Comunidade de desenvolvedores front-end
-- Metodologia BEM por Yandex
-
----
-
-**Desenvolvido com dedicação e boas práticas de código** | 2026
+Desenvolvido como parte do curso EBAC - Desenvolvimento Full Stack

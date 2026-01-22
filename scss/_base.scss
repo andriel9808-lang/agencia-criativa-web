@@ -1,0 +1,92 @@
+// _base.scss
+// Reset e estilos base
+
+@use 'variaveis' as *;
+@use 'mixins' as *;
+
+// Reset CSS
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: $tamanho-fonte-base;
+}
+
+body {
+  line-height: 1.6;
+  font-family: $fonte-principal;
+  color: $cor-texto;
+  background-color: $cor-fundo;
+}
+
+// Links
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Listas
+ul,
+ol {
+  list-style: none;
+}
+
+// Imagens
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Botões
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 {
+  @include texto-responsivo(2rem, 5vw, 3.5rem);
+}
+
+h2 {
+  @include texto-responsivo(1.8rem, 4vw, 2.5rem);
+}
+
+h3 {
+  @include texto-responsivo(1.3rem, 3vw, 1.8rem);
+}
+
+// Parágrafos
+p {
+  line-height: 1.8;
+}
+
+// Strong
+strong {
+  font-weight: 700;
+  color: $cor-texto;
+}
+
+// Responsividade mobile
+@media (max-width: $breakpoint-mobile) {
+  html {
+    font-size: 14px;
+  }
+}
